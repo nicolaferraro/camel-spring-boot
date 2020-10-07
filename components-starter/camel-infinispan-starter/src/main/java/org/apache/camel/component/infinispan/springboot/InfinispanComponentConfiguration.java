@@ -55,6 +55,10 @@ public class InfinispanComponentConfiguration
      */
     private String queryBuilder;
     /**
+     * Define if we are connecting to a secured Infinispan instance
+     */
+    private Boolean secure = false;
+    /**
      * Allows for bridging the consumer to the Camel routing Error Handler,
      * which mean any exceptions occurred while the consumer is trying to pickup
      * incoming messages, or the likes, will now be processed as a message and
@@ -92,6 +96,16 @@ public class InfinispanComponentConfiguration
      */
     private Boolean sync = true;
     /**
+     * Set a specific default value for some producer operations. The option is
+     * a java.lang.Object type.
+     */
+    private String defaultValue;
+    /**
+     * Set a specific key for producer operations. The option is a
+     * java.lang.Object type.
+     */
+    private String key;
+    /**
      * Whether the producer should be started lazy (on the first message). By
      * starting lazy you can use this to allow CamelContext and routes to
      * startup in situations where a producer may otherwise fail during starting
@@ -103,9 +117,39 @@ public class InfinispanComponentConfiguration
      */
     private Boolean lazyStartProducer = false;
     /**
+     * Set a specific old value for some producer operations. The option is a
+     * java.lang.Object type.
+     */
+    private String oldValue;
+    /**
      * The operation to perform.
      */
     private InfinispanOperation operation = InfinispanOperation.PUT;
+    /**
+     * Set a specific value for producer operations. The option is a
+     * java.lang.Object type.
+     */
+    private String value;
+    /**
+     * Define the password to access the infinispan instance
+     */
+    private String password;
+    /**
+     * Define the SASL Mechanism to access the infinispan instance
+     */
+    private String saslMechanism;
+    /**
+     * Define the security realm to access the infinispan instance
+     */
+    private String securityRealm;
+    /**
+     * Define the security server name to access the infinispan instance
+     */
+    private String securityServerName;
+    /**
+     * Define the username to access the infinispan instance
+     */
+    private String username;
     /**
      * Whether the component should use basic property binding (Camel 2.x) or
      * the newer property binding with additional capabilities
@@ -180,6 +224,14 @@ public class InfinispanComponentConfiguration
         this.queryBuilder = queryBuilder;
     }
 
+    public Boolean getSecure() {
+        return secure;
+    }
+
+    public void setSecure(Boolean secure) {
+        this.secure = secure;
+    }
+
     public Boolean getBridgeErrorHandler() {
         return bridgeErrorHandler;
     }
@@ -231,6 +283,22 @@ public class InfinispanComponentConfiguration
         this.sync = sync;
     }
 
+    public String getDefaultValue() {
+        return defaultValue;
+    }
+
+    public void setDefaultValue(String defaultValue) {
+        this.defaultValue = defaultValue;
+    }
+
+    public String getKey() {
+        return key;
+    }
+
+    public void setKey(String key) {
+        this.key = key;
+    }
+
     public Boolean getLazyStartProducer() {
         return lazyStartProducer;
     }
@@ -239,12 +307,68 @@ public class InfinispanComponentConfiguration
         this.lazyStartProducer = lazyStartProducer;
     }
 
+    public String getOldValue() {
+        return oldValue;
+    }
+
+    public void setOldValue(String oldValue) {
+        this.oldValue = oldValue;
+    }
+
     public InfinispanOperation getOperation() {
         return operation;
     }
 
     public void setOperation(InfinispanOperation operation) {
         this.operation = operation;
+    }
+
+    public String getValue() {
+        return value;
+    }
+
+    public void setValue(String value) {
+        this.value = value;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getSaslMechanism() {
+        return saslMechanism;
+    }
+
+    public void setSaslMechanism(String saslMechanism) {
+        this.saslMechanism = saslMechanism;
+    }
+
+    public String getSecurityRealm() {
+        return securityRealm;
+    }
+
+    public void setSecurityRealm(String securityRealm) {
+        this.securityRealm = securityRealm;
+    }
+
+    public String getSecurityServerName() {
+        return securityServerName;
+    }
+
+    public void setSecurityServerName(String securityServerName) {
+        this.securityServerName = securityServerName;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     @Deprecated
